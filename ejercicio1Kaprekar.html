@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Kaprekar</h1>
+  </body>
+  <script>
+    //let numero = 9536;
+
+    //     console.log(typeof(numero));
+    //     //let numeroComoCadena = `Es un numero ${numero}`;//es es un estring
+    //     //`` si le quito eso lo interpreta como cadena
+    //     let numeroComoCadena = `${numero}`;//es ta la forma chula de hacerlo
+    //     console.log(typeof(numeroComoCadena));
+    //    // console.log(numeroComoCadena);
+    //     numeroComoCadena = numero + '';
+    //     console.log("otra forma de hacerlo " + typeof(numeroComoCadena));
+    
+    //se pide un numero
+    let numero = prompt("Introduce un numero de maximo 4 digitos");
+ 
+    //lo transformo a array
+    let numeroArray = numero.split('');
+    console.log("sin ordenar " + numeroArray);
+    console.log(numeroArray);
+    
+    //Ordeno el array de manera ascendente
+    let numeroArrayMayor=numeroArray.sort();
+    numeroArrayMayor=numeroArrayMayor.reverse();
+    console.log("ordenado mayor a menor " );
+    console.log( numeroArrayMayor);
+    numeroArrayMayor=numeroArrayMayor.join('');
+    let numeroMayor = Number(numeroArrayMayor);
+    console.log("Trasnformado a numero ascendente ");
+    console.log(numeroMayor);
+
+    //Ordeno el array de manera descendente
+     let numeroArrayMenor=numeroArray.reverse();
+     console.log("ordenado menor a mayor");
+     console.log(numeroArrayMenor);
+     numeroArrayMenor=numeroArrayMenor.join('');
+     let numeroMenor=Number(numeroArrayMenor);
+     console.log("Transformado a numero descendente");
+     console.log(numeroMenor);
+    
+     let resultado;
+
+    if((numeroMayor>999) && (numeroMayor<9999)) {
+
+      resultado = numeroArrayMayor - numeroArrayMenor;
+
+     //console.log(resultado);
+
+      while(resultado<=0 || resultado!=6174){
+
+        let cadena1=resultado.toString();
+      numeroArrayMayor=cadena1.split('');
+      numeroArrayMayor=numeroArrayMayor.sort();
+      numeroArrayMayor=numeroArrayMayor.reverse();
+      //  console.log("mayor " );
+      //  console.log(numeroArrayMayor);
+      numeroArrayMenor=numeroArrayMayor.reverse();
+      // console.log("menor " );
+      //  console.log(numeroArrayMenor);
+
+      resultado = numeroArrayMayor - numeroArrayMenor;
+
+      }
+
+      console.log("Constante de kaprekar " + resultado);
+    }else{
+      alert("debe ser mayor a 4 cifras y maximo 4 cifras");
+    }
+
+  </script>
+</html>
